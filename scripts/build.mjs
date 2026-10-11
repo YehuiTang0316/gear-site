@@ -6,6 +6,8 @@ import {content} from '../src/content.mjs';
 const root = path.dirname(path.dirname(fileURLToPath(import.meta.url)));
 const out = path.join(root, 'docs');
 const origin = 'https://yehuitang0316.github.io/gear-site/';
+// GitHub's official Octicons star-16. License is distributed in assets/.
+const starIcon = (await readFile(path.join(root,'static/assets/star-16.svg'),'utf8')).trim().replace('<svg ', '<svg class="star-icon" fill="currentColor" aria-hidden="true" focusable="false" ');
 const starSnapshot = JSON.parse(await readFile(path.join(root,'src/github-stats.json'),'utf8'));
 if(starSnapshot.repo!=='rsi-gear/gear'||!Number.isSafeInteger(starSnapshot.count)||starSnapshot.count<0||!Number.isFinite(Date.parse(starSnapshot.checkedAt)))throw new Error('Invalid GitHub stars snapshot');
 const esc = s => String(s).replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
@@ -18,7 +20,7 @@ function page(t, locale) {
   const asset = f => `${base}assets/${f}`;
   const source = f => `${t.repo}/blob/main/docs/guide/${t.sourcePath}/${f}.md`;
   const brand = `<img src="${asset('gear-mark.jpeg')}" width="36" height="36" alt=""><span>GEAR</span>`;
-  const star = '<span class="star-icon" aria-hidden="true">☆</span>';
+  const star = starIcon;
   const starCount = `<span class="star-count" data-star-count>${starSnapshot.count.toLocaleString(t.lang)}</span>`;
   const snapshotTitle = `${t.starSnapshot}: ${starSnapshot.checkedAt.slice(0,10)}`;
   const starLink = (kind, label) => `<a class="star-link ${kind}" data-star-link href="${t.repo}" target="_blank" rel="noopener noreferrer" aria-label="${t.starLabel} · ${starSnapshot.count} stars" title="${snapshotTitle}">${star}<span class="star-label">${label}</span>${starCount}</a>`;

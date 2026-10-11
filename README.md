@@ -49,6 +49,7 @@ Content snapshot: 2026-10-11.
 - Product copy, reported metrics, caveats and setup prompt: `rsi-gear/gear` README and README.zh-CN.md.
 - Main introduction: `media/pro-c-intro/out/voiceover-v2/gear-pro-c-intro-18s-voiceover.mp4`, latest 2026-10-11 production (18 seconds of picture, 18.048-second container including audio padding).
 - Logo: original supplied mark used in the product film.
+- Star icon: GitHub's official [Octicons star-16](https://github.com/primer/octicons/blob/main/icons/star-16.svg), distributed under the included MIT license (`static/assets/octicons-LICENSE.txt`).
 - Case replays: `docs/guide/assets/landing-page-alerts-replay.mp4` and `featured-snippet-replay.mp4` from the product repository.
 - The interactive report workflow is an explicitly labeled conceptual illustration, not a live optimization run.
 
