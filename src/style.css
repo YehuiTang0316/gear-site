@@ -19,3 +19,4 @@
   .hero-actions{flex-wrap:wrap}
   .duration{display:none}
 }
+@media(max-width:680px){.engine-label{left:-82px;bottom:10px;transform:none;font-size:7px;gap:5px}}
