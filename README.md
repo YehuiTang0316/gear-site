@@ -22,6 +22,8 @@ Open http://127.0.0.1:4173/. Rebuild and reload after source edits.
 - `scripts/build.mjs`: shared accessible HTML template, sitemap and metadata.
 - `src/style.css`: responsive styles and reduced-motion support.
 - `src/app.js`: keyboard-accessible tabs, video replays and setup-prompt copying.
+- `src/stars.js`: live star counts from the public `rsi-gear/gear` GitHub API, shared across all three Star links. Uses a five-minute browser cache and refreshes when a visitor returns from a Star link.
+- `src/github-stats.json`: verified fallback count and timestamp. Failed requests keep the last verified count and show its date; no GitHub credentials are needed in the website.
 - `static/assets/`: original logo, videos, poster and hand-timed English/Chinese captions.
 - `docs/`: generated, committed publication directory.
 
@@ -30,6 +32,15 @@ Open http://127.0.0.1:4173/. Rebuild and reload after source edits.
 GitHub Pages publishes `main` → `/docs`. After editing, run `npm run build` and `npm run check`, commit both source and generated output, then push `main`. GitHub builds and publishes the committed static output. No custom Actions workflow, build service, API keys or npm installation is required.
 
 The main product repository and the existing personal homepage are independent of this website.
+
+To refresh the fallback Star snapshot before publishing:
+
+```sh
+gh api repos/rsi-gear/gear --jq '{repo:.full_name,count:.stargazers_count,checkedAt:(now|todateiso8601)}' > src/github-stats.json
+npm run build
+```
+
+The two task comparisons appear directly after the hero, before aggregate metrics, the introduction film and the technical explanation. Their replay videos use the original assets.
 
 ## Content provenance
 
