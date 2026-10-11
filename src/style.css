@@ -70,3 +70,24 @@
 @media(max-width:680px){.star-link.star-header{font-size:12px;gap:6px}.star-header .github-icon{width:19px;height:19px}.star-header .star-icon{width:15px;height:15px;margin-left:2px}.star-header .star-count{padding:0;font-size:12px}}
 @media(max-width:480px){.header-actions .button-small{display:none}.header-inner{gap:12px}.header-actions{gap:12px}}
 @media(max-width:370px){.header-inner>.brand span{font-size:21px}.header-inner>.brand img{width:26px;height:26px}.header-actions{gap:10px}.star-link.star-header{font-size:11px;gap:5px}.star-header .star-count{font-size:11px}}
+
+/* A final invitation to star the project after the experimental results. */
+.final-star{display:flex;align-items:center;justify-content:space-between;gap:28px;padding:36px 40px;margin-bottom:64px;background:#000;color:#f7f8f5;border:1px solid #000;border-radius:8px}
+.final-star>p{font-size:22px;line-height:1.4;font-weight:500;letter-spacing:-.025em}
+.final-star .star-link{flex:none;background:#f7f8f5;color:#111;border-color:#f7f8f5}
+.final-star .star-link:hover{background:#e7eddc;border-color:#e7eddc}
+.final-star .star-link:focus-visible{outline-color:#d8eeae}
+@media(max-width:680px){.final-star{padding:26px 24px;margin-bottom:40px;gap:18px}.final-star>p{font-size:17px}.final-star .star-link{padding:12px 14px;font-size:12px}}
+@media(max-width:539px){.final-star{flex-direction:column;align-items:flex-start}.final-star>p{font-size:18px}}
+
+/* The product film replaces the decorative illustration in the hero. */
+.hero-video-frame{width:100%;min-width:0;aspect-ratio:16/9;overflow:hidden;background:#f7f8f5;border:1px solid var(--line);border-radius:8px;box-shadow:0 14px 40px #1b25100a}
+.hero-video{display:block;width:100%;height:100%;object-fit:contain}
+@media(max-width:680px){.hero-video-frame{margin-top:20px}}
+
+/* The README experiment replay explains how harness optimization works. */
+.how-section{padding-top:0}
+.how-section .section-description{padding-top:0;max-width:430px}
+.how-video-frame{aspect-ratio:16/9;background:var(--soft);border:1px solid var(--line);border-radius:8px;overflow:hidden}
+.how-video{display:block;width:100%;height:100%;object-fit:contain}
+@media(max-width:680px){.how-section .section-description{padding-top:20px;max-width:none}}

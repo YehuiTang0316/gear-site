@@ -21,7 +21,7 @@ Open http://127.0.0.1:4173/. Rebuild and reload after source edits.
 - `src/content.mjs`: English and Chinese copy, sourced from the project README and the latest product film.
 - `scripts/build.mjs`: shared accessible HTML template, sitemap and metadata.
 - `src/style.css`: responsive styles and reduced-motion support.
-- `src/app.js`: keyboard-accessible tabs, video replays and setup-prompt copying.
+- `src/app.js`: keyboard-accessible benchmark tabs and inline product, case and how-it-works video playback.
 - `src/stars.js`: live star counts from the public `rsi-gear/gear` GitHub API, shared across all three Star links. Uses a five-minute browser cache and refreshes when a visitor returns from a Star link.
 - `src/github-stats.json`: verified fallback count and an internal timestamp for cache freshness. Failed requests keep the last verified count; timestamps are not displayed in the page. No GitHub credentials are needed in the website.
 - `static/assets/`: original logo, videos, poster and hand-timed English/Chinese captions.
@@ -40,7 +40,7 @@ gh api repos/rsi-gear/gear --jq '{repo:.full_name,count:.stargazers_count,checke
 npm run build
 ```
 
-The two task comparisons appear directly after the hero, before aggregate metrics, the introduction film and the technical explanation. Their replay videos use the original assets and play inline, muted and looping by default when they enter view. The two videos sit side by side on desktop and compact previews, with a single column on narrow phones. Each card contains a case title and video; native playback and fullscreen controls remain available.
+The page contains the hero with the 18-second product film, two task comparisons, experimental results, the README how-it-works replay, a final Star call to action and footer. The product film replaces the former hero illustration, loops muted in view, and includes native playback controls and English/Chinese captions. Experimental results follow the case videos directly; the former separate product-introduction section, interactive workflow diagram, scope, setup instructions, FAQ and closing section are omitted. The 72.2-second README evolution replay follows the results in a new How it works section, using the matching English or Chinese MP4. Their replay videos use the original assets and play inline, muted and looping by default when they enter view. The two videos sit side by side on desktop and compact previews, with a single column on narrow phones. Each card contains a case title and video; native playback and fullscreen controls remain available.
 
 ## Content provenance
 
@@ -50,7 +50,8 @@ Content snapshot: 2026-10-11.
 - Main introduction: `media/pro-c-intro/out/voiceover-v2/gear-pro-c-intro-18s-voiceover.mp4`, latest 2026-10-11 production (18 seconds of picture, 18.048-second container including audio padding).
 - Logo: original supplied mark used in the product film.
 - GitHub and Star icons: GitHub's official [Octicons mark-github-16](https://github.com/primer/octicons/blob/main/icons/mark-github-16.svg) and [star-16](https://github.com/primer/octicons/blob/main/icons/star-16.svg), distributed under the included MIT license (`static/assets/octicons-LICENSE.txt`).
+- How it works: the first README animation, `docs/guide/assets/automationbench-evolution-replay-{en,zh}.gif`, uses its full-resolution MP4 originals from `media/marketing-evolution/out/gear-marketing-evolution-en.mp4` and `gear-marketing-evolution-v2.mp4`, with matching posters (72.2 seconds, 1920 × 1080).
 - Case replays: `docs/guide/assets/landing-page-alerts-replay.mp4` and `featured-snippet-replay.mp4` from the product repository.
-- The interactive report workflow is an explicitly labeled conceptual illustration, not a live optimization run.
+- The product film includes a conceptual workflow illustration, not a live optimization run.
 
 Benchmark comparisons include all relevant reasoning-effort and harness conditions. The cost comparison uses the same optimized DSH harness (`a0740800`). Model training and automatic seed-task generation are not presented as completed capabilities.
