@@ -1,10 +1,10 @@
 export const content = {
   en: {
-    lang: 'en', title: 'GEAR — Harness, refined. Automatically.',
+    lang: 'en', title: 'Get your work done at top GEAR.',
     description: 'An open-source framework that evaluates and refines your AI agent’s skills, tools, and workflows against real-world tasks. Get your work done at top GEAR.',
     skip: 'Skip to content', nav: ['Results'], language: '中文', languageLabel: '切换到中文',
-    eyebrow: 'OPEN-SOURCE AGENT OPTIMIZATION', hero: 'Harness, refined.<br><span>Automatically.</span>',
-    heroText: 'Don’t let your work wait. Let GEAR turn task feedback into better skills, tools, and workflows — so your agent gets better at the work that matters.',
+    eyebrow: 'OPEN-SOURCE AGENT OPTIMIZATION', hero: '<span class="slogan-first">Get your work done</span><span class="slogan-second">at top <strong>GEAR.</strong></span>',
+    heroText: 'Don’t let your work wait. GEAR uses task feedback to automatically refine your agent’s harness — improving skills, tools, and workflows for the work that matters.',
     start: 'Start refining', watch: 'Watch the film', seconds: '18 seconds', compatible: 'Bring the agent you already use.',
     diagramLabel: 'An illustrative loop: evaluate a reporting skill, refine it using feedback, and evaluate the revision.',
     taskSet: 'YOUR REAL-WORLD TASKS', tasks: ['Research a topic', 'Analyze a spreadsheet', 'Prepare a report'],
@@ -64,11 +64,11 @@ export const content = {
     repo: 'https://github.com/rsi-gear/gear', guide: 'https://rsigear.xyz/docs/gear', sourcePath: 'en',
   },
   zh: {
-    lang: 'zh-CN', title: 'GEAR — 让 Harness 自动进化，让工作全速推进。',
+    lang: 'zh-CN', title: 'GEAR — 让工作全速推进。',
     description: 'GEAR 是一个开源 AI Agent 优化框架，以真实任务的评测反馈，持续改进技能、工具和工作流程。',
     skip: '跳转到正文', nav: ['实验结果'], language: 'EN', languageLabel: 'Switch to English',
-    eyebrow: '开源 AGENT 优化框架', hero: '让 Harness 进化。<br><span>让工作提速。</span>',
-    heroText: '别让工作继续等待。让 GEAR 把任务反馈转化为更好的技能、工具和工作流程，让 Agent 更擅长你真正关心的事。',
+    eyebrow: '开源 AGENT 优化框架', hero: '<span class="slogan-first">让工作</span><span class="slogan-second"><strong>全速推进。</strong></span>',
+    heroText: '别让工作继续等待。GEAR 利用任务反馈自动优化 Agent 的 Harness，持续改进技能、工具和工作流程，让 Agent 更擅长你真正关心的事。',
     start: '开始优化', watch: '观看介绍', seconds: '18 秒', compatible: '用你熟悉的 Agent，现在就开始。',
     diagramLabel: '流程示意：评测报告技能，根据反馈改进，再评测新版本。',
     taskSet: '你的真实任务', tasks: ['研究一个主题', '分析电子表格', '准备研究报告'],

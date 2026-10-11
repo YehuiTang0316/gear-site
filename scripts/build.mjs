@@ -43,7 +43,7 @@ function page(t, locale) {
 </div></header>
 <main id="main">
   <section class="hero container" aria-labelledby="hero-title">
-    <div class="hero-copy"><h1 id="hero-title">${t.hero}</h1><p class="hero-description">${t.heroText}</p><div class="hero-star">${starLink('star-hero',t.starAction)}</div><div class="compatible"><p>${t.compatible}</p><div><span>Codex</span><span>Claude Code</span><span>DSH</span><span>Pi</span><span class="more-agent">+</span></div></div></div>
+    <div class="hero-copy"><h1 id="hero-title" lang="${t.lang}">${t.hero}</h1><p class="hero-description">${t.heroText}</p><div class="hero-star">${starLink('star-hero',t.starAction)}</div><div class="compatible"><p>${t.compatible}</p><div><span>Codex</span><span>Claude Code</span><span>DSH</span><span>Pi</span><span class="more-agent">+</span></div></div></div>
     <div class="hero-video-frame"><video class="hero-video" autoplay muted loop playsinline controls preload="metadata" poster="${asset('intro-poster.png')}" aria-label="${t.play}"><source src="${asset('gear-intro.mp4')}" type="video/mp4"><track kind="captions" src="${asset('intro.en.vtt')}" srclang="en" label="English"${locale==='en'?' default':''}><track kind="captions" src="${asset('intro.zh.vtt')}" srclang="zh" label="简体中文"${locale==='zh'?' default':''}></video></div>
   </section>
   <section class="featured-cases section-space" id="cases" aria-labelledby="cases-title"><div class="container"><div class="section-heading"><div><h2 id="cases-title">${t.casesTitle}</h2></div><p class="section-description">${t.casesText}</p></div><div class="case-grid">${t.cases.map((c,i)=>`<article class="case-card"><div class="case-top"><span class="micro-label">CASE 0${i+1}</span><span class="case-benchmark">AutomationBench / Marketing</span></div><h3>${c[0]}</h3><div class="case-video-frame"><video class="case-video" autoplay muted loop playsinline controls preload="metadata" aria-label="${c[0]}"><source src="${asset(i===0?'landing-page-alerts.mp4':'featured-snippet.mp4')}" type="video/mp4"></video></div></article>`).join('')}</div></div></section>
@@ -54,7 +54,7 @@ function page(t, locale) {
 
   <section class="container final-star" id="star" aria-label="${t.starLabel}"><p>${t.starHelp}</p>${starLink('star-closing',t.starAction)}</section>
 </main>
-<footer class="container footer"><div><a class="brand" href="#">${brand}</a><span>${t.footerLine}</span></div><nav aria-label="${locale==='en'?'Footer':'页脚'}">${[t.guide,t.repo,'https://discord.gg/cZ4NBbHDk',`${t.repo}/blob/main/LICENSE`].map((url,i)=>`<a href="${url}">${t.footerLinks[i]}</a>`).join('')}</nav></footer>
+<footer class="container footer"><div><a class="brand" href="#">${brand}</a><span>${t.footerLine}</span></div><nav aria-label="${locale==='en'?'Footer':'页脚'}">${[t.guide,t.repo,'https://discord.gg/ZduvAtS2k',`${t.repo}/blob/main/LICENSE`].map((url,i)=>`<a href="${url}">${t.footerLinks[i]}</a>`).join('')}</nav></footer>
 <noscript><style>.benchmark-tabs{display:none}[id^="benchmark-"][hidden]{display:block;margin-top:40px}</style></noscript>
 </body></html>`;
 }
