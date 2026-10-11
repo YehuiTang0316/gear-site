@@ -23,7 +23,7 @@ Open http://127.0.0.1:4173/. Rebuild and reload after source edits.
 - `src/style.css`: responsive styles and reduced-motion support.
 - `src/app.js`: keyboard-accessible tabs, video replays and setup-prompt copying.
 - `src/stars.js`: live star counts from the public `rsi-gear/gear` GitHub API, shared across all three Star links. Uses a five-minute browser cache and refreshes when a visitor returns from a Star link.
-- `src/github-stats.json`: verified fallback count and timestamp. Failed requests keep the last verified count and show its date; no GitHub credentials are needed in the website.
+- `src/github-stats.json`: verified fallback count and an internal timestamp for cache freshness. Failed requests keep the last verified count; timestamps are not displayed in the page. No GitHub credentials are needed in the website.
 - `static/assets/`: original logo, videos, poster and hand-timed English/Chinese captions.
 - `docs/`: generated, committed publication directory.
 
@@ -40,7 +40,7 @@ gh api repos/rsi-gear/gear --jq '{repo:.full_name,count:.stargazers_count,checke
 npm run build
 ```
 
-The two task comparisons appear directly after the hero, before aggregate metrics, the introduction film and the technical explanation. Their replay videos use the original assets.
+The two task comparisons appear directly after the hero, before aggregate metrics, the introduction film and the technical explanation. Their replay videos use the original assets and play inline, muted and looping by default when they enter view. Native playback and fullscreen controls remain available.
 
 ## Content provenance
 

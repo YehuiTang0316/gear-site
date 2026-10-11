@@ -8,19 +8,13 @@
   const valid = value => value && Number.isSafeInteger(value.count) && value.count >= 0 &&
     Number.isFinite(value.checkedAt) && value.checkedAt > 0 && value.checkedAt <= Date.now();
 
-  function render(value, live = false) {
+  function render(value) {
     current = value;
     const count = value.count.toLocaleString(config.lang);
-    const date = new Date(value.checkedAt).toLocaleString(config.lang);
-    const description = `${config.snapshot}: ${date}`;
     document.querySelectorAll('[data-star-count]').forEach(el => { el.textContent = count; });
     document.querySelectorAll('[data-star-link]').forEach(el => {
       el.setAttribute('aria-label', `${config.label} · ${count} stars`);
-      el.title = description;
-    });
-    document.querySelectorAll('[data-star-freshness]').forEach(el => {
-      el.textContent = live ? `GitHub · ${config.fresh}` : description;
-      el.title = description;
+      el.title = `${config.label} · ${count} stars`;
     });
   }
 
@@ -47,10 +41,10 @@
       const repo = await response.json();
       const next = {count: repo.stargazers_count, checkedAt: Date.now()};
       if (repo.full_name !== config.repo || !valid(next)) throw new Error('Invalid GitHub data');
-      render(next, true);
+      render(next);
       try { localStorage.setItem(cacheKey, JSON.stringify(next)); } catch { /* Optional cache. */ }
     } catch {
-      // Keep the last verified count and explicitly show when it was checked.
+      // Keep the last verified count when GitHub is temporarily unavailable.
       render(current);
     } finally {
       clearTimeout(timeout);

@@ -60,3 +60,9 @@
 @media(max-width:370px){.header-inner{gap:10px}.header-actions{gap:8px}.header-actions .button-small{padding:8px;gap:5px;font-size:10px}.header-actions .language{font-size:10px}.star-header{padding:7px}.star-header .star-count{padding-left:5px}.featured-cases .case-card{padding:16px}.case-side{padding:13px 9px}.case-model{font-size:8px}.case-benchmark{font-size:7px}.featured-cases .case-card h3{font-size:21px}.featured-cases .section-heading h2{font-size:29px}}
 /* Official GitHub Octicons star-16: fixed geometry, independent of text fonts. */
 .star-icon{width:16px;height:16px;flex:none;color:#57606a}
+/* The real execution replays are visible directly in each comparison card. */
+.case-video-frame{margin-top:23px;aspect-ratio:16/9;background:#f5f6f2;border:1px solid #dce3d2;border-radius:5px;overflow:hidden}
+.case-video{display:block;width:100%;height:100%;object-fit:contain}
+.featured-cases .case-card>.case-playback{font:9px/1.6 var(--mono);color:#77856b;margin-top:10px;min-height:0}
+.featured-cases .case-comparison{margin-top:19px}
+@media(max-width:680px){.case-video-frame{margin-top:19px}.featured-cases .case-card>.case-playback{font-size:8px}}

@@ -56,18 +56,17 @@
       const selection=window.getSelection();selection.removeAllRanges();selection.addRange(range);
     }
   });
-  const dialog=document.querySelector('#replay-dialog');
-  const replay=document.querySelector('#replay-video');
-  let previousFocus;
-  document.querySelectorAll('[data-video]').forEach(button => button.addEventListener('click', () => {
-    previousFocus=button;
-    intro.pause();
-    document.querySelector('#replay-title').textContent=button.dataset.title;
-    replay.src=button.dataset.video;
-    dialog.showModal();document.body.classList.add('dialog-open');
-    replay.play().catch(()=>{});
-  }));
-  document.querySelector('.close-dialog').addEventListener('click',()=>dialog.close());
-  dialog.addEventListener('click', event => { if(event.target===dialog){const r=dialog.getBoundingClientRect();if(event.clientX<r.left||event.clientX>r.right||event.clientY<r.top||event.clientY>r.bottom)dialog.close();} });
-  dialog.addEventListener('close', () => {replay.pause();replay.removeAttribute('src');replay.load();document.body.classList.remove('dialog-open');previousFocus?.focus();});
+  // Start the inline replays when they enter view; pause them offscreen.
+  // Native controls remain available and a manual pause is preserved in view.
+  const caseVideos = [...document.querySelectorAll('.case-video')];
+  if ('IntersectionObserver' in window) {
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(({target: video, isIntersecting}) => {
+        video.autoplay = isIntersecting;
+        if (isIntersecting) video.play().catch(() => {});
+        else video.pause();
+      });
+    }, {threshold: 0.15});
+    caseVideos.forEach(video => observer.observe(video));
+  }
 })();
