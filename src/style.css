@@ -12,3 +12,10 @@
 .engine-label{transform:translateX(-45px)}
 @media(min-width:681px){.task-stack{top:20px;width:220px}}
 @media(max-width:680px){.task-stack{left:8px}.engine-label{transform:translateX(-32px)}}
+@media(max-width:680px){
+  .hero{grid-template-columns:minmax(0,1fr)}
+  .hero-copy{min-width:0}
+  .hero-visual{width:100%;max-width:450px}
+  .hero-actions{flex-wrap:wrap}
+  .duration{display:none}
+}
