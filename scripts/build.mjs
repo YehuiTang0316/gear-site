@@ -6,13 +6,13 @@ import {content} from '../src/content.mjs';
 const root = path.dirname(path.dirname(fileURLToPath(import.meta.url)));
 const out = path.join(root, 'docs');
 const origin = 'https://yehuitang0316.github.io/gear-site/';
-// GitHub's official Octicons star-16. License is distributed in assets/.
+// GitHub's official Octicons. License is distributed in assets/.
 const starIcon = (await readFile(path.join(root,'static/assets/star-16.svg'),'utf8')).trim().replace('<svg ', '<svg class="star-icon" fill="currentColor" aria-hidden="true" focusable="false" ');
 const starSnapshot = JSON.parse(await readFile(path.join(root,'src/github-stats.json'),'utf8'));
 if(starSnapshot.repo!=='rsi-gear/gear'||!Number.isSafeInteger(starSnapshot.count)||starSnapshot.count<0||!Number.isFinite(Date.parse(starSnapshot.checkedAt)))throw new Error('Invalid GitHub stars snapshot');
 const esc = s => String(s).replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 const arrow = '<span aria-hidden="true">↗</span>';
-const github = '<svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-3.16 19.49c.5.09.68-.22.68-.48v-1.86c-2.78.61-3.37-1.18-3.37-1.18-.45-1.16-1.11-1.47-1.11-1.47-.91-.62.07-.61.07-.61 1 .07 1.53 1.03 1.53 1.03.89 1.53 2.34 1.09 2.91.83.09-.65.35-1.09.64-1.34-2.22-.25-4.55-1.11-4.55-4.94 0-1.09.39-1.98 1.03-2.68-.1-.25-.45-1.27.1-2.65 0 0 .84-.27 2.75 1.02A9.6 9.6 0 0 1 12 6.82a9.6 9.6 0 0 1 2.5.34c1.91-1.29 2.75-1.02 2.75-1.02.55 1.38.2 2.4.1 2.65.64.7 1.03 1.59 1.03 2.68 0 3.84-2.33 4.68-4.56 4.93.36.31.68.92.68 1.85v2.76c0 .26.18.58.69.48A10 10 0 0 0 12 2Z"/></svg>';
+const github = (await readFile(path.join(root,'static/assets/mark-github-16.svg'),'utf8')).trim().replace('<svg ', '<svg class="github-icon" fill="currentColor" aria-hidden="true" focusable="false" ');
 
 function page(t, locale) {
   const base = locale === 'en' ? './' : '../';
@@ -22,7 +22,7 @@ function page(t, locale) {
   const brand = `<img src="${asset('gear-mark.jpeg')}" width="36" height="36" alt=""><span>GEAR</span>`;
   const star = starIcon;
   const starCount = `<span class="star-count" data-star-count>${starSnapshot.count.toLocaleString(t.lang)}</span>`;
-  const starLink = (kind, label) => `<a class="star-link ${kind}" data-star-link href="${t.repo}" target="_blank" rel="noopener noreferrer" aria-label="${t.starLabel} · ${starSnapshot.count} stars" title="${t.starLabel}">${star}<span class="star-label">${label}</span>${starCount}</a>`;
+  const starLink = (kind, label) => `<a class="star-link ${kind}" data-star-link href="${t.repo}" target="_blank" rel="noopener noreferrer" aria-label="${t.starLabel} · ${starSnapshot.count} stars" title="${t.starLabel}">${kind === 'star-header' ? `${github}<span class="repo-name">${starSnapshot.repo}</span>${star}${starCount}` : `${star}<span class="star-label">${label}</span>${starCount}`}</a>`;
   const inlineData = JSON.stringify({demoRows:t.demoRows, demoComments:t.demoComments, demoStages:t.demoStages, copyPrompt:t.copyPrompt,copied:t.copied,copyFail:t.copyFail,play:t.play,pause:t.pause,stars:{...starSnapshot,lang:t.lang,label:t.starLabel}}).replaceAll('<','\\u003c');
   return `<!doctype html>
 <html lang="${t.lang}">

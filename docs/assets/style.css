@@ -66,3 +66,32 @@
 .featured-cases .case-card>.case-playback{font:9px/1.6 var(--mono);color:#77856b;margin-top:10px;min-height:0}
 .featured-cases .case-comparison{margin-top:19px}
 @media(max-width:680px){.case-video-frame{margin-top:19px}.featured-cases .case-card>.case-playback{font-size:8px}}
+/* Keep the two case videos side by side in desktop and compact app previews. */
+@media(min-width:560px){.featured-cases .case-grid{grid-template-columns:minmax(0,1fr) minmax(0,1fr)}}
+@media(min-width:560px) and (max-width:900px){
+  .featured-cases .case-grid{gap:16px}
+  .featured-cases .case-card{padding:16px}
+  .featured-cases .case-top{flex-direction:column;align-items:flex-start;gap:7px}
+  .featured-cases .case-card h3{font-size:18px;line-height:1.25;min-height:2.5em;margin-top:17px}
+  .featured-cases .case-comparison{gap:7px}
+  .featured-cases .case-side{padding:13px 8px}
+  .featured-cases .case-model{font-size:8px}
+  .featured-cases .case-result{font-size:31px}
+  .featured-cases .case-result>span{font-size:19px}
+  .featured-cases .case-checks{font-size:8px}
+  .featured-cases .case-side p{font-size:10px}
+  .featured-cases .case-bottom{flex-direction:column;align-items:flex-start}
+  .featured-cases .case-bottom>span{font-size:7px}
+  .featured-cases .case-watch{font-size:10px}
+}
+
+/* Navigation repository link: GitHub mark, repository name, and live stars. */
+.star-link.star-header{border:0;border-radius:0;padding:6px 0;background:transparent;color:#51574b;font-size:13px;font-weight:500;gap:8px}
+.star-link.star-header:hover{background:transparent;color:var(--ink);transform:none}
+.star-header .github-icon{width:21px;height:21px;flex:none}
+.star-header .repo-name{letter-spacing:-.02em}
+.star-header .star-icon{margin-left:3px;color:#7b8274}
+.star-header .star-count{border:0;margin:0;padding:0;min-width:0;font:inherit;font-variant-numeric:tabular-nums;color:#7b8274}
+@media(max-width:680px){.star-link.star-header{font-size:12px;gap:6px}.star-header .github-icon{width:19px;height:19px}.star-header .star-icon{width:15px;height:15px;margin-left:2px}.star-header .star-count{padding:0;font-size:12px}}
+@media(max-width:480px){.header-actions .button-small{display:none}.header-inner{gap:12px}.header-actions{gap:12px}}
+@media(max-width:370px){.header-inner>.brand span{font-size:21px}.header-inner>.brand img{width:26px;height:26px}.header-actions{gap:10px}.star-link.star-header{font-size:11px;gap:5px}.star-header .star-count{font-size:11px}}
