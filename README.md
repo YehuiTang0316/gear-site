@@ -1,0 +1,44 @@
+# GEAR website
+
+The bilingual GEAR product website, published on GitHub Pages.
+
+- English: https://yehuitang0316.github.io/gear-site/
+- 简体中文: https://yehuitang0316.github.io/gear-site/zh/
+- Product repository: https://github.com/rsi-gear/gear
+
+## Develop
+
+No third-party packages are required. Use Node.js 18+ to generate the site and Python 3 for the local preview.
+
+```sh
+npm run build
+npm run check
+npm run preview
+```
+
+Open http://127.0.0.1:4173/. Rebuild and reload after source edits.
+
+- `src/content.mjs`: English and Chinese copy, sourced from the project README and the latest product film.
+- `scripts/build.mjs`: shared accessible HTML template, sitemap and metadata.
+- `src/style.css`: responsive styles and reduced-motion support.
+- `src/app.js`: keyboard-accessible tabs, video replays and setup-prompt copying.
+- `static/assets/`: original logo, videos, poster and hand-timed English/Chinese captions.
+- `docs/`: generated, committed publication directory.
+
+## Publish
+
+GitHub Pages publishes `main` → `/docs`. After editing, run `npm run build` and `npm run check`, commit both source and generated output, then push `main`. GitHub builds and publishes the committed static output. No custom Actions workflow, build service, API keys or npm installation is required.
+
+The main product repository and the existing personal homepage are independent of this website.
+
+## Content provenance
+
+Content snapshot: 2026-10-11.
+
+- Product copy, reported metrics, caveats and setup prompt: `rsi-gear/gear` README and README.zh-CN.md.
+- Main introduction: `media/pro-c-intro/out/voiceover-v2/gear-pro-c-intro-18s-voiceover.mp4`, latest 2026-10-11 production (18 seconds of picture, 18.048-second container including audio padding).
+- Logo: original supplied mark used in the product film.
+- Case replays: `docs/guide/assets/landing-page-alerts-replay.mp4` and `featured-snippet-replay.mp4` from the product repository.
+- The interactive report workflow is an explicitly labeled conceptual illustration, not a live optimization run.
+
+Benchmark comparisons include all relevant reasoning-effort and harness conditions. The cost comparison uses the same optimized DSH harness (`a0740800`). Model training and automatic seed-task generation are not presented as completed capabilities.

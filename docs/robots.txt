@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://yehuitang0316.github.io/gear-site/sitemap.xml
