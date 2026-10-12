@@ -54,7 +54,7 @@ function page(t, locale) {
 
   <section class="container final-star" id="star" aria-label="${t.starLabel}"><p>${t.starHelp}</p>${starLink('star-closing',t.starAction)}</section>
 </main>
-<footer class="container footer"><div><a class="brand" href="#">${brand}</a><span>${t.footerLine}</span></div><nav aria-label="${locale==='en'?'Footer':'页脚'}">${[t.guide,t.repo,'https://discord.gg/ZduvAtS2k',`${t.repo}/blob/main/LICENSE`].map((url,i)=>`<a href="${url}">${t.footerLinks[i]}</a>`).join('')}</nav></footer>
+<footer class="container footer"><div><a class="brand" href="#">${brand}</a><span>${t.footerLine}</span></div><nav aria-label="${locale==='en'?'Footer':'页脚'}">${[t.website,t.guide,t.repo,'https://discord.gg/ZduvAtS2k',`${t.repo}/blob/main/LICENSE`].map((url,i)=>`<a href="${url}">${t.footerLinks[i]}</a>`).join('')}</nav></footer>
 <noscript><style>.benchmark-tabs{display:none}[id^="benchmark-"][hidden]{display:block;margin-top:40px}</style></noscript>
 </body></html>`;
 }
